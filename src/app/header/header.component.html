@@ -1,0 +1,31 @@
+<div class="top-menu" [ngClass]="{ 'top-menu-logged-in': isLoggedIn() }">
+  <a
+    routerLink="/products"
+    class="logo"
+    [ngClass]="{ 'logo-logged-in': isLoggedIn() }"
+  >
+    <h2>MyShop</h2>
+    <p>For Your Needs</p>
+  </a>
+
+  <div *ngIf="!isLoggedIn()" class="login-page">
+    <a routerLink="/login">Login</a>
+    /
+    <a routerLink="/register">Register</a>
+  </div>
+
+  <div *ngIf="isLoggedIn()" class="cart">
+    <a routerLink="/cart/1" class="logout"
+      >My Cart <i class="fas fa-shopping-cart"></i
+    ></a>
+  </div>
+
+  <div *ngIf="isLoggedIn()" class="login">
+    <div>
+      <p>Logged in as: <a routerLink="/user/edit">{{username}}</a></p>
+    </div>
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

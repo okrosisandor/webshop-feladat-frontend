@@ -1,0 +1,144 @@
+.input-error{
+    color: red;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-left: 200px;
+}
+
+/* settings */
+
+.settings{
+    background-color: #eee;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+.settings form{
+    width: 60%;
+    margin: auto;
+}
+
+.settings h2{
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.settings .input-group{
+    margin: 1rem auto;
+    position: relative;
+}
+
+.settings .input-group p{
+    display: inline-block;
+    font-size: 1.6rem;
+    margin-left: 5rem;
+}
+
+.settings input{
+    padding: 0.5rem;
+    width: 300px;
+    border-radius: 7px;
+    border: 1px solid black;
+    font-size: 1rem;
+    outline: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.settings input:focus{
+    border: 1px solid #115AA3;
+}
+
+.settings button{
+    margin: 3rem auto;
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 7px;
+    background-color: #115AA3;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+
+.settings button:hover{
+    background-color: #5F86ED;
+    transition: all 0.2s ease-in;
+}
+
+/* media */
+
+@media(max-width:1250px){
+    .settings input{
+        width: 250px;
+        left: 60%;
+    }
+}
+
+@media(max-width: 1070px){
+    .settings .input-group p{
+        margin-left: 2.5rem;
+    }
+}
+
+@media(max-width:1024px){
+    .settings form{
+        width: 75%;
+    }
+
+    .settings input{
+        width: 200px;
+        left: 60%;
+    }
+
+    .settings .input-group p{
+        margin-left: 1rem;
+    }
+    
+}
+
+@media(max-width: 720px){
+    .settings .input-group p{
+        font-size: 1.4rem;
+        padding-top: 0.3rem;
+    }
+
+    .settings form{
+        width: 90%;
+    }
+}
+
+@media(max-width:650px){
+    .settings form{
+        width: 100%;
+    }
+
+    .settings input{
+        left: 55%;
+    }
+}
+
+@media(max-width:500px){
+    .settings .input-group p{
+        font-size: 1.3rem;
+        margin-left: 0;
+    }
+
+    .settings input{
+        width: 160px;
+    }
+}
+
+@media(max-width:375px){
+    .settings .input-group p{
+        font-size: 1.1rem;
+    }
+
+    .settings input{
+        width: 140px;
+    }
+}

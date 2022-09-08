@@ -1,0 +1,199 @@
+.input-error {
+  color: red;
+  font-size: 1.2rem;
+  margin-bottom: -0.2rem;
+}
+
+input {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 1rem;
+  outline: none;
+  padding: 10px 8px;
+  margin: 8px 0;
+  display: inline-block;
+  padding-left: 3.6rem;
+  color: #222;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group .input-icon {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  color: #222;
+  font-size: 1.2rem;
+}
+
+.input-group .input-icon::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 15px;
+  top: 0px;
+  height: 42px;
+  border-right: 2px solid #333;
+  margin-top: -0.75rem;
+  margin-left: 0.8rem;
+  background-color: purple;
+}
+
+#register-form {
+  width: 100%;
+  margin: 1rem auto;
+}
+
+#register-form h2 {
+  text-align: center;
+  border-bottom: 2px solid black;
+  width: 25%;
+  padding-top: 1.5rem;
+  margin: 1.5rem auto;
+  padding-bottom: 0.4rem;
+  font-size: 1.7rem;
+}
+
+#register-form h2:hover {
+  text-shadow: 0px 0px 5px black;
+  border-bottom: 3px solid black;
+  transition: all 0.2s ease-in;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  margin: auto;
+  grid-gap: 50px;
+}
+
+.info-detail {
+  text-align: center;
+  margin-bottom: 1.6rem;
+  font-size: 1.2rem;
+}
+
+.info span {
+  border: 1px solid black;
+  padding: 0.3rem 0.8rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+}
+
+.select-role {
+  width: 15%;
+  margin: 1rem auto;
+}
+
+select {
+  width: 100%;
+  padding: 12px 6px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 1rem;
+  outline: none;
+  margin: 8px 0;
+}
+
+#sign-up-button {
+  display: block;
+  margin: 1.6rem auto;
+  margin-bottom: 1.6rem;
+  font-size: 1.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 7px;
+  background-color: #115aa3;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#sign-up-button:hover {
+  background-color: #5f86ed;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 0px 10px #115aa3;
+}
+
+#register-form .login-page {
+  display: block;
+  padding-left: 5rem;
+  padding-bottom: 1.6rem;
+  font-size: 1rem;
+}
+
+#register-form .login-page a {
+  text-decoration: none;
+  color: #115aa3;
+  padding-left: 0.2rem;
+}
+
+#register-form .login-page a:hover {
+  color: #5f86ed;
+  transition: all 0.2s ease-in;
+}
+
+#register-form input:focus,
+select {
+  box-shadow: 0 0 20px #91ecdb;
+}
+
+/* media */
+
+@media (max-width: 1150px) {
+  .select-role {
+    width: 18%;
+  }
+}
+
+@media (max-width: 900px) {
+  #register-form {
+    width: 80%;
+  }
+
+  #register-form h2 {
+    width: 30%;
+  }
+
+  .info {
+    grid-template-columns: 1fr;
+    width: 75%;
+  }
+
+  .select-role {
+    width: 30%;
+  }
+}
+
+@media (max-width: 700px) {
+  #register-form {
+    width: 90%;
+  }
+
+  #register-form h2 {
+    width: 40%;
+  }
+
+  #register-form .login-page {
+    padding-left: 3.5rem;
+  }
+
+  .select-role {
+    width: 35%;
+  }
+}
+
+@media (max-width: 500px) {
+  #register-form {
+    width: 95%;
+  }
+
+  .select-role {
+    width: 40%;
+  }
+}

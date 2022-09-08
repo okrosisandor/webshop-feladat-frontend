@@ -1,0 +1,149 @@
+.out-of-stock{
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.product{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    background-color: #eee;
+    padding: 0.5rem;
+    margin-bottom: 5rem;
+}
+
+input{
+    border-radius:  7px;
+    border: 1px solid #115AA3;
+    outline: none;
+}
+
+input:focus{
+    box-shadow: 0 0 8px #5F86ED;
+}
+
+.product img, .product .info, .product .order{
+    height: 200px;
+    width: auto;
+}
+
+.product .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 200px;
+}
+
+.product .info a{
+    text-decoration: none;
+}
+
+.product .info h3{
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.product .info .details{
+    color: white;
+    background-color: #115AA3;
+    font-size: 2.2rem;
+    margin: auto;
+    padding: 0.5rem;
+}
+
+.product .info .details:hover{
+    background-color: #5F86ED;
+    transition: all 0.2s ease-in;
+}
+
+.product .order{
+    font-size: 2.2rem;
+    padding-top: 1rem;
+    margin: auto;
+}
+
+.product .order p{
+    margin-top: 1rem;
+}
+
+.product .order .cart{
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.product .order i{
+    display: inline-block;
+    color: #115AA3;
+}
+
+.product .order i:hover{
+    cursor: pointer;
+    color: #5F86ED;
+}
+
+.product .order input{
+    height: 40px;
+    width: 90px;
+    padding: 0 0.7rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.product .order button{
+    font-size: 2.1rem;
+    margin-left: 1.5rem;
+    color: #115AA3;
+    border: none;
+}
+
+/* media */
+
+@media(max-width:1300px){
+    .product .info h3{
+        text-align: center;
+    }
+
+    .product{
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+}
+
+@media(max-width:768px){
+    .product{
+        grid-template-areas: 
+            'image image image'
+            'info info info'
+            'order order order';
+        grid-row-gap: 30px;
+    } 
+
+    .product img{
+        margin: auto;
+        grid-area: image;
+        height: 300px;
+        width: 300px;
+        margin-top: 2rem;
+    }
+
+    .product .info{
+        height: 80px;
+        grid-area: info;
+        text-align: center;
+        margin: auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .product .order{
+        grid-area: order;
+        margin-bottom: 0;
+        text-align: center;
+    }
+}

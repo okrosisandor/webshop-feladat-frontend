@@ -1,0 +1,59 @@
+<div class="settings">
+    <form [formGroup]="updateForm" (ngSubmit)="updateHandler()" action="">
+        <h2>Personal Details</h2>
+
+        <p class="input-error" *ngIf="updateFormControl().firstName.errors && alreadySubmitted">First Name must not be empty</p>
+        <div class="input-group">
+            <p>First Name:</p>
+            <input type="text" name="" formControlName="firstName">
+        </div>
+        <p class="input-error" *ngIf="updateFormControl().lastName.errors && alreadySubmitted">Last Name must not be empty</p>
+        <div class="input-group">
+            <p>Last Name:</p>
+            <input type="text" name="" formControlName="lastName">
+        </div>
+        <div class="input-group">
+            <p>Email:</p>
+            <input type="email" name="" formControlName="email" disabled>
+        </div>
+        <p class="input-error" *ngIf="updateFormControl().password.touched && updateFormControl().password.errors && alreadySubmitted">Passwords must match</p>
+        <div class="input-group">
+            <p>New Password:</p>
+            <input type="password" name="" formControlName="password">
+        </div>
+        <p class="input-error" *ngIf="updateFormControl().confirmPassword.touched && updateFormControl().confirmPassword.errors && alreadySubmitted">Passwords must match</p>
+        <div class="input-group">
+            <p>Confirm Password:</p>
+            <input type="password" name="" formControlName="confirmPassword">
+        </div>
+
+        <h2>Contact Details</h2>
+        <p class="input-error" *ngIf="updateFormControl().country.errors && alreadySubmitted">Country must not be empty</p>
+        <div class="input-group" >
+            <p>Country:</p>
+            <input type="text" name="" formControlName="country">
+        </div>
+        <p class="input-error" *ngIf="updateFormControl().city.errors && alreadySubmitted">City must not be empty</p>
+        <div class="input-group" >
+            <p>City:</p>
+            <input type="text" name="" formControlName="city">
+        </div>
+        <p class="input-error" *ngIf="updateFormControl().zipCode.errors && alreadySubmitted">Zip Code must not be empty</p>
+        <div class="input-group" >
+            <p>Zip Code:</p>
+            <input type="text" name="" formControlName="zipCode">
+        </div>
+        <p class="input-error" *ngIf="updateFormControl().address.errors && alreadySubmitted">Address must not be empty</p>
+        <div class="input-group" >
+            <p>Address:</p>
+            <input type="text" name="" formControlName="address">
+        </div>
+        <p class="input-error" *ngIf="updateFormControl().phone.errors && alreadySubmitted">Phone must not be empty</p>
+        <div class="input-group" >
+            <p>Phone:</p>
+            <input type="text" name="" formControlName="phone">
+        </div>
+
+        <button type="submit">Change</button>
+    </form>
+</div>

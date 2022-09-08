@@ -1,0 +1,29 @@
+<h1 class="empty-cart" *ngIf="customerCart && customerCart.length === 0">Your cart is empty.</h1>
+
+<div class="user-cart-info">
+  <p id="show-cart" *ngIf="customerCart && customerCart.length > 0">Shopping Cart <i class="fas fa-shopping-cart"></i> ({{customerCart.length}})</p>
+</div>
+
+<!-- User Cart-->
+
+<div class="user-cart">
+  <div class="purchase-items">
+    <a *ngIf="customerCart && customerCart.length > 0" routerLink="/order/1" > Purchase <i class="fas fa-shopping-bag"></i> </a>
+  </div>
+
+  <h2 class="total-price" *ngIf="customerCart && customerCart.length > 0">Total price: ${{totalAmount.toFixed(2)}}</h2>
+
+  <div class="product-list">
+    <app-cart-item
+      *ngFor="let cart of customerCart"
+      [cartId]="cart.id"
+      [productId]="cart.product.id"
+      [userId]="1"
+      [productName]="cart.product.name"
+      [price]="cart.product.price"
+      [quantity]="cart.quantity"
+      [cart]="cart"
+      ><ng-content></ng-content
+    ></app-cart-item>
+  </div>
+</div>

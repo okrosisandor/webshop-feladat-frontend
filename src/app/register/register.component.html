@@ -1,0 +1,81 @@
+<form [formGroup]="registerForm" (ngSubmit)="registerHandler()" id="register-form">
+  <h2>Sign Up</h2>
+
+  <div class="info">
+    <div class="general">
+      <p class="info-detail"><span>1</span>General Information</p>
+
+      <p *ngIf="errors && errors.email" class="input-error">{{errors.email}}</p>
+      <div class="input-group">
+        <input type="email" name="" placeholder="Email" formControlName="email" />
+        <div class="input-icon"><i class="fas fa-envelope"></i></div>
+      </div>
+      <p *ngIf="errors && errors.firstName" class="input-error">{{errors.firstName}}</p>
+      <div class="input-group">
+        <input type="text" name="" placeholder="First Name" formControlName="firstName" />
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+      <p *ngIf="errors && errors.lastName" class="input-error">{{errors.lastName}}</p>
+      <div class="input-group">
+        <input type="text" name="" placeholder="Last Name" formControlName="lastName" />
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+      <p *ngIf="errors && errors.password" class="input-error">{{errors.password}}</p>
+      <div class="input-group">
+        <input type="password" name="" placeholder="Password" formControlName="password" />
+        <div class="input-icon"><i class="fas fa-key"></i></div>
+      </div>
+      <p *ngIf="errors && errors.confirmPassword" class="input-error">{{errors.confirmPassword}}</p>
+      <div class="input-group">
+        <input type="password" name="" placeholder="Confirm Password" formControlName="confirmPassword" />
+        <div class="input-icon"><i class="fas fa-key"></i></div>
+      </div>
+    </div>
+
+    <div class="contact">
+      <p class="info-detail"><span>2</span>Contact Details</p>
+
+      <p *ngIf="registerFormControl().country.errors && alreadySubmitted" class="input-error">Country is required</p>
+      <div class="input-group">
+        <input type="text" name="" placeholder="Country" formControlName="country" />
+        <div class="input-icon"><i class="fas fa-globe"></i></div>
+      </div>
+      <p *ngIf="registerFormControl().city.errors && alreadySubmitted" class="input-error">City is required</p>
+      <div class="input-group">
+        <input type="text" name="" placeholder="City" formControlName="city" />
+        <div class="input-icon"><i class="fas fa-city"></i></div>
+      </div>
+      <p *ngIf="registerFormControl().zipCode.errors && alreadySubmitted" class="input-error">Zipcode is required</p>
+      <div class="input-group">
+        <input type="text" name="" placeholder="Zip Code" formControlName="zipCode" />
+        <div class="input-icon"><i class="fas fa-map-pin"></i></div>
+      </div>
+      <p *ngIf="registerFormControl().address.errors && alreadySubmitted" class="input-error">Address is required</p>
+      <div class="input-group">
+        <input type="text" name="" placeholder="Address" formControlName="address" />
+        <div class="input-icon"><i class="fas fa-map"></i></div>
+      </div>
+      <p *ngIf="registerFormControl().phone.errors && alreadySubmitted" class="input-error">Phone is required</p>
+      <div class="input-group">
+        <input type="text" name="" placeholder="Phone" formControlName="phone" />
+        <div class="input-icon"><i class="fas fa-phone"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="select-role">
+    <select name="" id="" formControlName="role">
+      <optgroup label="Role">
+        <option value="user">Normal User</option>
+        <option value="admin">Admin</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <button type="submit" id="sign-up-button">
+    Sign Up <i class="fas fa-user-plus"></i>
+  </button>
+  <h3 class="login-page">
+    Already have an account? <a routerLink="/login">Log in</a>
+  </h3>
+</form>

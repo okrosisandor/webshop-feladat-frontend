@@ -1,0 +1,27 @@
+<section class="details">
+
+    <img src="assets/img/682257363.xiaomi-redmi-note-9-pro-128gb-6gb-ram-dual.jpg" id="big-image" alt="product-img">
+
+    <div class="content">
+
+        <h2>{{product.name}}</h2>
+
+        <div class="description">
+
+            <p>{{product.description}}</p>
+        </div>
+
+        <div class="order">
+            <p class="price"><span>$</span>{{product.price.toFixed(2)}}</p>
+            <form class="cart" [formGroup]="cartForm" (ngSubmit)="addToCart()">
+                <input type="text" name="" id="" placeholder="Quantity" min="1" formControlName="quantity">
+                <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+            </form>
+        </div>
+
+        <div class="edit-item">
+            <a [routerLink]="['/products', product.id, 'edit']"> Edit <i class="fas fa-edit"></i> </a>
+        </div>
+
+    </div>
+</section>

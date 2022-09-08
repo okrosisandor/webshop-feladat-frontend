@@ -1,0 +1,148 @@
+.login-error{
+  color: red;
+  font-size: 1.2rem;
+  margin-bottom: -0.2rem;
+}
+
+#login-form {
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+#login-form h2 {
+  text-align: center;
+  border-bottom: 2px solid black;
+  width: 25%;
+  padding-top: 1.5rem;
+  margin: 1.5rem auto;
+  padding-bottom: 0.4rem;
+  font-size: 1.7rem;
+}
+
+#login-form h2:hover {
+  text-shadow: 0px 0px 5px black;
+  border-bottom: 3px solid black;
+  transition: all 0.2s ease-in;
+}
+
+#login-form input {
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+  padding: 12px 8px;
+  margin: 8px 0;
+  display: inline-block;
+  padding-left: 3.6rem;
+}
+
+.input-group {
+  position: relative;
+  width: 50%;
+  margin: auto;
+}
+
+.input-group .input-icon {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.input-group .input-icon::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 15px;
+  top: 0px;
+  height: 45px;
+  border-right: 2px solid black;
+  margin-top: -0.75rem;
+  margin-left: 0.8rem;
+}
+
+#login-button {
+  display: block;
+  margin: 1.6rem auto;
+  margin-bottom: 1.6rem;
+  font-size: 1.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 7px;
+  background-color: #115aa3;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#login-form .register-page {
+  display: block;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+}
+
+#login-form .register-page a {
+  text-decoration: none;
+  color: #115aa3;
+  padding-left: 0.2rem;
+}
+
+#login-form .register-page a:hover {
+  color: #5f86ed;
+  transition: all 0.2s ease-in;
+}
+
+#login-button:hover {
+  background-color: #5f86ed;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 0px 10px #115aa3;
+}
+
+#login-form input:focus {
+  box-shadow: 0 0 20px #91ecdb;
+}
+
+/* media */
+
+@media (max-width: 1100px) {
+  #login-form {
+    width: 100%;
+    left: 25%;
+  }
+}
+
+@media (max-width: 900px) {
+  #login-form {
+    left: 20%;
+  }
+}
+
+@media (max-width: 700px) {
+  #login-form {
+    left: 15%;
+  }
+
+  #login-form h2 {
+    width: 35%;
+  }
+
+  .input-group {
+    width: 60%;
+  }
+}
+
+@media (max-width: 500px) {
+  #login-form {
+    left: 10%;
+  }
+
+  #login-form h2 {
+    width: 40%;
+  }
+
+  .input-group {
+    width: 65%;
+  }
+}

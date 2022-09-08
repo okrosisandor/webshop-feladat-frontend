@@ -1,0 +1,19 @@
+<div class="product">
+    <img
+      src="assets/img/682257363.xiaomi-redmi-note-9-pro-128gb-6gb-ram-dual.jpg"
+      alt=""
+    />
+
+    <div class="info">
+      <h3>{{productName}}</h3>
+      <p class="price">${{price}} * {{quantity}} = ${{currentTotal}}</p>
+    </div>
+
+    <div class="remove">
+      <p (click)="removeFromCart()">Remove <i class="fas fa-trash"></i></p>
+      <div class="change-quantity">
+        <p class="decrease" (click)="changeAmount('decrease')">-</p>
+        <p class="increase" (click)="changeAmount('increase')">+</p>
+      </div>
+    </div>
+  </div>

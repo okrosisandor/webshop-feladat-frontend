@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginHandler()" id="login-form">
+  <h2>Log In</h2>
+
+  <p class="login-error" *ngIf="loginFormControl().email.touched && loginFormControl().email.errors && !alreadySubmitted">Invalid email</p>
+  <p class="login-error" *ngIf="alreadySubmitted && !loginData">Incorrect username</p>
+  <div class="input-group">
+    <input type="text" name="" placeholder="Username" formControlName="email" />
+    <div class="input-icon"><i class="fa fa-user"></i></div>
+  </div>
+  <p class="login-error" *ngIf="loginFormControl().password.touched && loginFormControl().password.errors && !alreadySubmitted">Password is required</p>
+  <p class="login-error" *ngIf="alreadySubmitted && !loginData">Incorrect password</p>
+  <div class="input-group">
+    <input type="password" name="" placeholder="Password" formControlName="password" />
+    <div class="input-icon"><i class="fas fa-key"></i></div>
+  </div>
+
+  <button type="submit" id="login-button">
+    Sign In <i class="fas fa-sign-in-alt"></i>
+  </button>
+  <h3 class="register-page">
+    New Member?<a routerLink="/register">Register</a>
+  </h3>
+</form>

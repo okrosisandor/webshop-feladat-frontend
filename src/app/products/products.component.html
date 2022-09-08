@@ -1,0 +1,18 @@
+
+    <h1 class="no-product" *ngIf="products.length === 0">There are no products available.</h1>
+    
+    <p class="pages-info" *ngIf="products.length > 0">{{products.length}} product(s),<span> 1 page(s)</span></p>
+
+    <div class="product-list">
+        <app-single-product *ngFor="let product of products" [productId]="product.id" [productName]="product.name" [productPrice]="product.price.toFixed(2)" [availableProducts]="product.availableInStock"><ng-content></ng-content></app-single-product>
+    </div>
+
+    <!-- <div class="pages" *ngIf="products.length > 0">
+        <a href=""><i class="fas fa-chevron-left"></i></a>
+        <span href="" class="inactive">1</span>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href=""><i class="fas fa-chevron-right"></i></a>
+    </div> -->

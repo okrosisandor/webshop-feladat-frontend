@@ -1,0 +1,21 @@
+<div class="product">
+    <img src="assets/img/682257363.xiaomi-redmi-note-9-pro-128gb-6gb-ram-dual.jpg" alt="">
+
+    <div class="info">
+        <!-- <h3>Xiaomi Redmi Note 9 Pro 128GB 6GB RAM Dual Mobiltelefon</h3> -->
+        <h3>{{name}}</h3>
+        <a [routerLink]="['/products', id, 'details']" class="details">Details</a>
+    </div>
+
+    <div *ngIf="availableProducts > 0" class="order">
+        <p>${{price}}</p>
+        <form class="cart" [formGroup]="cartForm" (ngSubmit)="addToCart()">
+            <input type="text" name="" id="" placeholder="Quantity" min="1" formControlName="quantity">
+            <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+        </form>
+    </div>
+
+    <p class="out-of-stock" *ngIf="1 > availableProducts">Not Available</p>
+</div>
+
+<!-- <router-outlet></router-outlet> -->

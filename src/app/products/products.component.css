@@ -1,0 +1,49 @@
+.no-product{
+    margin: 2.5rem auto;
+    text-align: center;
+    color: red;
+    font-size: 1.8rem;
+}
+
+
+/* pages info section */
+
+.pages-info{
+    margin-top: 1rem;
+    color: white;
+    background-color: black;
+    padding: 0.5rem 0;
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+/* pages */
+
+.pages{
+    margin: 3rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0.8rem 0;
+}
+
+.pages a{
+    padding: 0.4rem 0.8rem;
+    background-color: #115AA3;
+    color: white;
+    margin: 0 0.2rem;
+    text-decoration: none;
+}
+
+.pages .inactive{
+	padding: 0.4rem 0.8rem;
+    background-color: red;
+    color: white;
+    margin: 0 0.2rem;
+    border-radius: 7px;
+}
+
+.pages a:hover{
+    background-color: #5F86ED;
+    transition: all 0.2s ease-in;
+}
+

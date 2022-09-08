@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+
+.top-menu{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background-color: #000;
+    padding: 0.5rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.top-menu-logged-in{
+    grid-template-columns: 30% 25% 45%;
+}
+
+.logo{
+    height: 100px;
+    width: auto;
+    color: white;
+    font-family: "Dancing Script", cursive;
+    text-decoration: none;
+}
+
+.logo h2{
+    font-size: 3.6rem;
+}
+
+.logo p{
+    font-size: 1.4rem;
+    padding-left: 1.3rem;
+}
+
+
+.top-menu .login-page{
+    align-self: center;
+    justify-self: end;
+    font-size: 1.3rem;
+    margin-right: 3rem;
+    color: #115AA3;
+}
+
+.top-menu .login-page a{
+    color: #115AA3;
+}
+
+.top-menu .logout{
+    color: #115AA3;
+    text-align: center;
+    margin: auto;
+    display: block;
+    background-color: transparent;
+}
+
+.top-menu .logout:hover{
+    color:  yellow;
+    cursor: pointer;
+}
+
+.top-menu .login-page a:hover{
+    text-decoration: underline;
+    color: yellow;
+}
+
+.top-menu .login{
+    text-align: center;
+}
+
+.top-menu .login, .top-menu .cart{
+    align-self: center;
+    justify-self: end;
+    font-size: 1.2rem;
+    color: white;
+    margin-right: 1rem;
+}
+
+.top-menu .login a{
+    color: #115AA3;
+    cursor: pointer;
+}
+
+.top-menu .cart{
+    justify-self: end;
+}
+
+.top-menu .cart a{
+    font-size: 1.4rem;
+    color: #115AA3;
+}
+
+.top-menu .cart a:hover, .top-menu .login a:hover{
+    color: yellow;
+    text-decoration: none;
+}
+
+@media(max-width: 900px){
+    .top-menu-logged-in{
+        grid-template-columns: 25% 25% 50%;
+    }
+}
+
+@media(max-width:768px){
+    .top-menu{
+        width: 100%;
+    }
+
+	.top-menu .login-page{
+		margin-right: 1rem;
+	}
+
+    .top-menu-logged-in{
+        display: block;
+    }
+	
+	.logo h2{
+		font-size: 3.2rem;
+	}
+	
+	.logo p{
+		padding-left: 0.6rem;
+	}
+
+    .logo-logged-in{
+        text-align: center;
+        margin-bottom: 2rem;
+        height: 200px;
+    }
+
+    .logo-logged-in:hover{
+        color: yellow;
+    }
+
+    .logo-logged-in p{
+        display: none;
+    }
+
+    .top-menu .cart{
+        margin: 1rem auto;
+    }
+
+    .top-menu .login{
+        margin: auto;
+        text-align: center;
+    }
+
+    .top-menu .login div{
+        margin-bottom: 1rem;
+    }
+}
