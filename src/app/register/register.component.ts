@@ -54,13 +54,13 @@ export class RegisterComponent implements OnInit {
     };
 
     this.userService.register(this.user).subscribe(
-      (res) => {},
+      (res) => {
+        this.router.navigate(["login"])
+      },
       (err) => {
         this.errors = err.error;
       }
     );
-
-    this.router.navigate["login"]
   }
 
   registerFormControl() {

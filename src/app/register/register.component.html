@@ -7,27 +7,27 @@
 
       <p *ngIf="errors && errors.email" class="input-error">{{errors.email}}</p>
       <div class="input-group">
-        <input type="email" name="" placeholder="Email" formControlName="email" />
+        <input [ngClass]="errors && errors.email ? 'input-error-border' : ''" type="email" name="" placeholder="Email" formControlName="email" />
         <div class="input-icon"><i class="fas fa-envelope"></i></div>
       </div>
       <p *ngIf="errors && errors.firstName" class="input-error">{{errors.firstName}}</p>
       <div class="input-group">
-        <input type="text" name="" placeholder="First Name" formControlName="firstName" />
+        <input [ngClass]="errors && errors.firstName ? 'input-error-border' : ''" type="text" name="" placeholder="First Name" formControlName="firstName" />
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
       <p *ngIf="errors && errors.lastName" class="input-error">{{errors.lastName}}</p>
       <div class="input-group">
-        <input type="text" name="" placeholder="Last Name" formControlName="lastName" />
+        <input [ngClass]="errors && errors.lastName ? 'input-error-border' : ''" type="text" name="" placeholder="Last Name" formControlName="lastName" />
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
       <p *ngIf="errors && errors.password" class="input-error">{{errors.password}}</p>
       <div class="input-group">
-        <input type="password" name="" placeholder="Password" formControlName="password" />
+        <input [ngClass]="errors && errors.password ? 'input-error-border' : ''" type="password" name="" placeholder="Password" formControlName="password" />
         <div class="input-icon"><i class="fas fa-key"></i></div>
       </div>
       <p *ngIf="errors && errors.confirmPassword" class="input-error">{{errors.confirmPassword}}</p>
       <div class="input-group">
-        <input type="password" name="" placeholder="Confirm Password" formControlName="confirmPassword" />
+        <input [ngClass]="errors && errors.confirmPassword ? 'input-error-border' : ''" type="password" name="" placeholder="Confirm Password" formControlName="confirmPassword" />
         <div class="input-icon"><i class="fas fa-key"></i></div>
       </div>
     </div>
@@ -37,27 +37,27 @@
 
       <p *ngIf="registerFormControl().country.errors && alreadySubmitted" class="input-error">Country is required</p>
       <div class="input-group">
-        <input type="text" name="" placeholder="Country" formControlName="country" />
+        <input [ngClass]="registerFormControl().country.errors && alreadySubmitted ? 'input-error-border' : ''" type="text" name="" placeholder="Country" formControlName="country" />
         <div class="input-icon"><i class="fas fa-globe"></i></div>
       </div>
       <p *ngIf="registerFormControl().city.errors && alreadySubmitted" class="input-error">City is required</p>
       <div class="input-group">
-        <input type="text" name="" placeholder="City" formControlName="city" />
+        <input [ngClass]="registerFormControl().city.errors && alreadySubmitted ? 'input-error-border' : ''" type="text" name="" placeholder="City" formControlName="city" />
         <div class="input-icon"><i class="fas fa-city"></i></div>
       </div>
       <p *ngIf="registerFormControl().zipCode.errors && alreadySubmitted" class="input-error">Zipcode is required</p>
       <div class="input-group">
-        <input type="text" name="" placeholder="Zip Code" formControlName="zipCode" />
+        <input [ngClass]="registerFormControl().zipCode.errors && alreadySubmitted ? 'input-error-border' : ''" type="text" name="" placeholder="Zip Code" formControlName="zipCode" />
         <div class="input-icon"><i class="fas fa-map-pin"></i></div>
       </div>
       <p *ngIf="registerFormControl().address.errors && alreadySubmitted" class="input-error">Address is required</p>
       <div class="input-group">
-        <input type="text" name="" placeholder="Address" formControlName="address" />
+        <input [ngClass]="registerFormControl().address.errors && alreadySubmitted ? 'input-error-border' : ''" type="text" name="" placeholder="Address" formControlName="address" />
         <div class="input-icon"><i class="fas fa-map"></i></div>
       </div>
       <p *ngIf="registerFormControl().phone.errors && alreadySubmitted" class="input-error">Phone is required</p>
       <div class="input-group">
-        <input type="text" name="" placeholder="Phone" formControlName="phone" />
+        <input [ngClass]="registerFormControl().phone.errors && alreadySubmitted ? 'input-error-border' : ''" type="text" name="" placeholder="Phone" formControlName="phone" />
         <div class="input-icon"><i class="fas fa-phone"></i></div>
       </div>
     </div>

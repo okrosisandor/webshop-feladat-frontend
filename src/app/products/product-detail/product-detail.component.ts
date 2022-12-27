@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 import { ProductService } from 'src/app/service/product.service';
 
@@ -10,6 +10,8 @@ import { ProductService } from 'src/app/service/product.service';
   styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
+
+
   product: any;
 
   cartQuantity: number;
@@ -21,14 +23,18 @@ export class ProductDetailComponent implements OnInit {
     ),
   });
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, private cartService: CartService) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
 
     this.productService.getProductById(id).subscribe((data) => {
       this.product = data;
+
+      console.log("-----------------------")
+      console.log(this.product)
     });
+
   }
 
   addToCart() {
@@ -38,7 +44,7 @@ export class ProductDetailComponent implements OnInit {
       this.cartService
         .addToCart(1, id, { quantity: this.cartQuantity })
         .subscribe((res) => {
-          // this.router.navigate([`/cart/${1}`]);
+          this.router.navigate([`/cart/${1}`]);
         });
     }
   }

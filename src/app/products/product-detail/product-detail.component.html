@@ -11,13 +11,15 @@
             <p>{{product.description}}</p>
         </div>
 
-        <div class="order">
+        <div class="order" *ngIf="product.availableInStock > 0">
             <p class="price"><span>$</span>{{product.price.toFixed(2)}}</p>
             <form class="cart" [formGroup]="cartForm" (ngSubmit)="addToCart()">
                 <input type="text" name="" id="" placeholder="Quantity" min="1" formControlName="quantity">
                 <button type="submit"><i class="fas fa-shopping-cart"></i></button>
             </form>
         </div>
+
+        <p class="out-of-stock" *ngIf="product.availableInStock < 1">Not Available</p>
 
         <div class="edit-item">
             <a [routerLink]="['/products', product.id, 'edit']"> Edit <i class="fas fa-edit"></i> </a>

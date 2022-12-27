@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.user).subscribe(
       (res) => {
         this.loginData = res;
-        console.log(res)
 
         if (this.loginData != null) {
           localStorage.setItem('token', this.loginData.accessToken);
@@ -51,7 +50,6 @@ export class LoginComponent implements OnInit {
       (err) => {
         this.loginForm.controls["email"].setErrors({'incorrect': true});
         this.loginForm.controls["email"].setErrors({'incorrect': true});
-        console.log(err)
       }
     );
   }
