@@ -1,49 +1,43 @@
-.no-product{
-    margin: 2.5rem auto;
-    text-align: center;
-    color: red;
-    font-size: 1.8rem;
+.no-product {
+  margin: 2.5rem auto;
+  text-align: center;
+  color: red;
+  font-size: 1.8rem;
 }
-
 
 /* pages info section */
 
-.pages-info{
-    margin-top: 1rem;
-    color: white;
-    background-color: black;
-    padding: 0.5rem 0;
-	font-size: 1.1rem;
-	text-align: center;
+.pages-info {
+  margin-top: 1rem;
+  color: white;
+  background-color: black;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 /* pages */
 
-.pages{
-    margin: 3rem 0;
+::ng-deep .ngx-pagination {
+    margin: auto;
     text-align: center;
     font-size: 1.5rem;
-    padding: 0.8rem 0;
+    width: 100%;
+    position: relative;
 }
 
-.pages a{
-    padding: 0.4rem 0.8rem;
-    background-color: #115AA3;
-    color: white;
+::ng-deep .ngx-pagination li{
     margin: 0 0.2rem;
-    text-decoration: none;
+    margin-bottom: 3rem;
 }
 
-.pages .inactive{
-	padding: 0.4rem 0.8rem;
+::ng-deep .ngx-pagination span{
+    padding: 0.3rem;
+}
+
+::ng-deep .ngx-pagination .current{
+    border-radius: 3px;
     background-color: red;
-    color: white;
-    margin: 0 0.2rem;
-    border-radius: 7px;
 }
 
-.pages a:hover{
-    background-color: #5F86ED;
-    transition: all 0.2s ease-in;
-}
 

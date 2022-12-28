@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 import { ProductService } from 'src/app/service/product.service';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,8 +11,6 @@ import { ProductService } from 'src/app/service/product.service';
   styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
-
-
   product: any;
 
   cartQuantity: number;
@@ -23,18 +22,20 @@ export class ProductDetailComponent implements OnInit {
     ),
   });
 
-  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, private cartService: CartService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private productService: ProductService,
+    private cartService: CartService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
 
     this.productService.getProductById(id).subscribe((data) => {
       this.product = data;
-
-      console.log("-----------------------")
-      console.log(this.product)
     });
-
   }
 
   addToCart() {
@@ -47,5 +48,9 @@ export class ProductDetailComponent implements OnInit {
           this.router.navigate([`/cart/${1}`]);
         });
     }
+  }
+
+  isAdmin() {
+    return this.userService.isAdmin();
   }
 }

@@ -53,4 +53,9 @@ export class UserService {
 
     return decoded.sub.split(',')[1];
   }
+
+  isAdmin(){
+    const decoded: any = jwt_decode(localStorage.getItem('token'));
+    return decoded.roles.includes("ROLE_ADMIN");
+  }
 }

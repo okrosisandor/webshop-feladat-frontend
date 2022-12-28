@@ -13,6 +13,10 @@ export class ProductsComponent implements OnInit {
 
   products = [];
 
+  p: number = 1;
+  itemsPerPage: number = 2;
+  totalPages: any;
+
   token: any;
 
   ngOnInit(): void {
@@ -22,6 +26,7 @@ export class ProductsComponent implements OnInit {
   getProducts() {
     this.service.getProducts().subscribe((data) => {
       this.products = data;
+      this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
     });
   }
 }

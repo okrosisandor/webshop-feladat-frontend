@@ -21,7 +21,7 @@
 
         <p class="out-of-stock" *ngIf="product.availableInStock < 1">Not Available</p>
 
-        <div class="edit-item">
+        <div *ngIf="isAdmin()" class="edit-item">
             <a [routerLink]="['/products', product.id, 'edit']"> Edit <i class="fas fa-edit"></i> </a>
         </div>
 

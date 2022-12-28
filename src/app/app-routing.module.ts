@@ -9,22 +9,32 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { RoleGuard } from './guard/role.guard';
 
 const appRoutes: Routes = [
-  { path: 'products', component: ProductsComponent, title: "Products" },
-  { path: 'products/:id/details', component: ProductDetailComponent, title: "Product detail" },
-  { path: 'products/:id/edit', component: EditProductComponent, title: "Edit product" },
-  { path: 'cart/:id', component: CartComponent, title: "Your cart" },
-  { path: 'login', component: LoginComponent, title: "Login" },
-  { path: 'register', component: RegisterComponent, title: "Register" },
-  { path: 'order/:id', component: OrderComponent, title: "Submit order" },
+  { path: 'products', component: ProductsComponent, title: 'Products' },
+  {
+    path: 'products/:id/details',
+    component: ProductDetailComponent,
+    title: 'Product detail',
+  },
+  {
+    path: 'products/:id/edit',
+    component: EditProductComponent,
+    title: 'Edit product',
+    canActivate: [RoleGuard],
+  },
+  { path: 'cart/:id', component: CartComponent, title: 'Your cart' },
+  { path: 'login', component: LoginComponent, title: 'Login' },
+  { path: 'register', component: RegisterComponent, title: 'Register' },
+  { path: 'order/:id', component: OrderComponent, title: 'Submit order' },
   // { path: 'user/edit', component: PasswordRequestComponent },
-  { path: 'user/edit', component: UserProfileComponent, title: "Edit details" },
+  { path: 'user/edit', component: UserProfileComponent, title: 'Edit details' },
   { path: '**', redirectTo: '/products' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' })],
 
   exports: [RouterModule],
 })

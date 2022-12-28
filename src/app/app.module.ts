@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/Material-Module';
 import { TokenInterceptorService } from './service/token-interceptor.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
     ProductDetailComponent,
     EditProductComponent,
     UserProfileComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -45,7 +46,8 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [
     {
@@ -54,6 +56,6 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

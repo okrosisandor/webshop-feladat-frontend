@@ -101,6 +101,12 @@ input:focus{
     border: none;
 }
 
+.product .available{
+    color: red;
+    font-size: 1.2rem;
+}
+
+
 /* media */
 
 @media(max-width:1300px){
@@ -145,5 +151,11 @@ input:focus{
         grid-area: order;
         margin-bottom: 0;
         text-align: center;
+    }
+
+    .product .out-of-stock{
+        grid-area: order;
+        margin-top: 1rem;
+        font-size: 1.5rem;
     }
 }

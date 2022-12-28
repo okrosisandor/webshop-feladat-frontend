@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
+import jwt_decode from 'jwt-decode';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-single-product',
@@ -23,9 +25,20 @@ export class SingleProductComponent implements OnInit {
     ),
   });
 
-  constructor(private router: Router, private cartService: CartService) {}
+  constructor(
+    private router: Router,
+    private cartService: CartService,
+    private userService: UserService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const decoded: any = jwt_decode(localStorage.getItem('token'));
+    console.log(decoded.roles);
+    console.log(decoded.roles.includes('ROLE_ADMIN'));
+
+    console.log('--------');
+    console.log(this.userService.isAdmin());
+  }
 
   addToCart() {
     if (this.cartForm.valid) {
@@ -36,5 +49,9 @@ export class SingleProductComponent implements OnInit {
           this.router.navigate([`/cart/${1}`]);
         });
     }
+  }
+
+  isAdmin() {
+    return this.userService.isAdmin();
   }
 }
