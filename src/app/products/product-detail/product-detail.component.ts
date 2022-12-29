@@ -45,7 +45,7 @@ export class ProductDetailComponent implements OnInit {
       this.cartService
         .addToCart(1, id, { quantity: this.cartQuantity })
         .subscribe((res) => {
-          this.router.navigate([`/cart/${1}`]);
+          this.router.navigate(["/cart"]);
         });
     }
   }

@@ -8,14 +8,9 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
-username: string
-
   constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.username = this.userService.getUserName()
-  }
+  ngOnInit(): void {}
 
   isLoggedIn() {
     return this.userService.isLoggedIn();
@@ -23,6 +18,6 @@ username: string
 
   logout() {
     this.userService.logout();
-    this.router.navigate(['/products']);
+    this.router.navigate(['/login']);
   }
 }

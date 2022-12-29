@@ -15,14 +15,14 @@
   </div>
 
   <div *ngIf="isLoggedIn()" class="cart">
-    <a routerLink="/cart/1" class="logout"
+    <a routerLink="/cart" class="logout"
       >My Cart <i class="fas fa-shopping-cart"></i
     ></a>
   </div>
 
   <div *ngIf="isLoggedIn()" class="login">
     <div>
-      <p>Logged in as: <a routerLink="/user/edit">{{username}}</a></p>
+      <p>Logged in as: <a routerLink="/user/edit">{{userService.getUserName()}}</a></p>
     </div>
     <button class="logout" (click)="logout()">Logout</button>
   </div>

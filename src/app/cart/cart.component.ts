@@ -31,7 +31,7 @@ export class CartComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
 
-    this.cartService.getCart(1).subscribe((data) => {
+    this.cartService.getCart().subscribe((data) => {
 
       for(let i = 0; i < data.length; i++){
         this.customerCart.push(data[i])
@@ -55,7 +55,7 @@ export class CartComponent implements OnInit, OnDestroy {
   getCart() {
     const id = this.route.snapshot.params['id'];
 
-    this.cartService.getCart(1).subscribe((data) => {
+    this.cartService.getCart().subscribe((data) => {
       this.customerCart = data;
     });
   }

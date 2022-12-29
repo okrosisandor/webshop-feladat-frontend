@@ -5,14 +5,13 @@
   />
 
   <div class="info">
-    <!-- <h3>Xiaomi Redmi Note 9 Pro 128GB 6GB RAM Dual Mobiltelefon</h3> -->
     <h3>{{ name }}</h3>
     <a [routerLink]="['/products', id, 'details']" class="details">Details</a>
   </div>
 
-  <div *ngIf="availableProducts > 0" class="order">
+  <div class="order">
     <p>${{ price }}</p>
-    <form class="cart" [formGroup]="cartForm" (ngSubmit)="addToCart()">
+    <form *ngIf="availableProducts > 0" class="cart" [formGroup]="cartForm" (ngSubmit)="addToCart()">
       <input
         type="text"
         name=""
@@ -25,9 +24,10 @@
     </form>
 
     <p *ngIf="isAdmin()" class="available">Available: {{ availableProducts }}</p>
+    
+    <p *ngIf="!isAdmin() && availableProducts < 1" class="out-of-stock">Not Available</p>
   </div>
-
-  <p class="out-of-stock" *ngIf="1 > availableProducts">Not Available</p>
+  
 </div>
 
 <!-- <router-outlet></router-outlet> -->

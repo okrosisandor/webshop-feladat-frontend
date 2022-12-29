@@ -32,12 +32,12 @@ export class SingleProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const decoded: any = jwt_decode(localStorage.getItem('token'));
-    console.log(decoded.roles);
-    console.log(decoded.roles.includes('ROLE_ADMIN'));
+    // const decoded: any = jwt_decode(localStorage.getItem('token'));
+    // console.log(decoded.roles);
+    // console.log(decoded.roles.includes('ROLE_ADMIN'));
 
-    console.log('--------');
-    console.log(this.userService.isAdmin());
+    // console.log('--------');
+    // console.log(this.userService.isAdmin());
   }
 
   addToCart() {
@@ -46,7 +46,7 @@ export class SingleProductComponent implements OnInit {
       this.cartService
         .addToCart(1, this.id, { quantity: this.cartQuantity })
         .subscribe((res) => {
-          this.router.navigate([`/cart/${1}`]);
+          this.router.navigate(["/cart"]);
         });
     }
   }

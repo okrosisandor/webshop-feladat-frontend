@@ -12,7 +12,7 @@ import { UserService } from '../service/user.service';
 @Injectable({
   providedIn: 'root',
 })
-export class RoleGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) {}
 
   canActivate(
@@ -23,11 +23,11 @@ export class RoleGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.userService.isLoggedIn() && this.userService.isAdmin()) {
+    if (this.userService.isLoggedIn()) {
       return true;
     }
 
-    this.router.navigate(['products']);
+    this.router.navigate(['login']);
     return false;
   }
 }

@@ -14,7 +14,7 @@ export class CartService {
     return this.http.post(`${this.apiUrl}/${userId}/${productId}`, quantity);
   }
 
-  getCart(userId: any) {
+  getCart() {
     return this.http.get<any[]>(this.apiUrl);
   }
 

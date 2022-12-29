@@ -10,6 +10,7 @@ import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RoleGuard } from './guard/role.guard';
+import { AuthGuard } from './guard/auth.guard';
 
 const appRoutes: Routes = [
   { path: 'products', component: ProductsComponent, title: 'Products' },
@@ -24,12 +25,32 @@ const appRoutes: Routes = [
     title: 'Edit product',
     canActivate: [RoleGuard],
   },
-  { path: 'cart/:id', component: CartComponent, title: 'Your cart' },
+  {
+    path: 'cart',
+    component: CartComponent,
+    title: 'Your cart',
+    canActivate: [AuthGuard],
+  },
   { path: 'login', component: LoginComponent, title: 'Login' },
   { path: 'register', component: RegisterComponent, title: 'Register' },
-  { path: 'order/:id', component: OrderComponent, title: 'Submit order' },
-  // { path: 'user/edit', component: PasswordRequestComponent },
-  { path: 'user/edit', component: UserProfileComponent, title: 'Edit details' },
+  {
+    path: 'order/:id',
+    component: OrderComponent,
+    title: 'Submit order',
+    canActivate: [AuthGuard],
+  },
+  // {
+  //   path: 'user/edit',
+  //   component: PasswordRequestComponent,
+  //   title: 'Enter password',
+  //   canActivate: [AuthGuard],
+  // },
+  {
+    path: 'user/edit',
+    component: UserProfileComponent,
+    title: 'Edit details',
+    canActivate: [AuthGuard],
+  },
   { path: '**', redirectTo: '/products' },
 ];
 

@@ -7,6 +7,6 @@
         <app-single-product *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" [productId]="product.id" [productName]="product.name" [productPrice]="product.price.toFixed(2)" [availableProducts]="product.availableInStock"><ng-content></ng-content></app-single-product>
     </div>
 
-    <div>
+    <div *ngIf="products.length > 0">
         <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls>
     </div>

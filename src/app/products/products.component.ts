@@ -14,7 +14,7 @@ export class ProductsComponent implements OnInit {
   products = [];
 
   p: number = 1;
-  itemsPerPage: number = 2;
+  itemsPerPage: number = 5;
   totalPages: any;
 
   token: any;
@@ -28,5 +28,6 @@ export class ProductsComponent implements OnInit {
       this.products = data;
       this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
     });
+    console.log(this.products)
   }
 }
