@@ -1,8 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-} from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { CartService } from '../service/cart.service';
 
@@ -14,7 +10,7 @@ import { CartService } from '../service/cart.service';
 export class CartComponent implements OnInit, OnDestroy {
   navigationSubscription;
 
-  customerCart: any = []
+  customerCart: any = [];
   totalAmount: number = 0;
 
   constructor(
@@ -29,13 +25,12 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
+    this.getCartItems();
+  }
 
+  getCartItems() {
     this.cartService.getCart().subscribe((data) => {
-
-      for(let i = 0; i < data.length; i++){
-        this.customerCart.push(data[i])
-      }
+      this.customerCart = data;
 
       for (let i = 0; i < this.customerCart.length; i++) {
         let currentPrice =
@@ -43,7 +38,6 @@ export class CartComponent implements OnInit, OnDestroy {
         this.totalAmount += currentPrice;
       }
     });
-
   }
 
   ngOnDestroy() {
@@ -58,5 +52,21 @@ export class CartComponent implements OnInit, OnDestroy {
     this.cartService.getCart().subscribe((data) => {
       this.customerCart = data;
     });
+  }
+
+  onElementDeleted(cartItem) {
+    let index = this.customerCart.findIndex((elt) => elt === cartItem);
+    if (index != -1) {
+      // this.customerCart.splice(index, 1);
+      this.customerCart = this.customerCart.filter((c) => c.id != cartItem.id);
+
+      this.totalAmount = 0;
+
+      for (let i = 0; i < this.customerCart.length; i++) {
+        let currentPrice =
+          this.customerCart[i].product.price * this.customerCart[i].quantity;
+        this.totalAmount += currentPrice;
+      }
+    }
   }
 }

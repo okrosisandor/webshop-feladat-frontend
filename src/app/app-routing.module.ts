@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RoleGuard } from './guard/role.guard';
 import { AuthGuard } from './guard/auth.guard';
+import { IdentifiedUserGuard } from './guard/identified-user.guard';
 
 const appRoutes: Routes = [
   { path: 'products', component: ProductsComponent, title: 'Products' },
@@ -39,17 +40,17 @@ const appRoutes: Routes = [
     title: 'Submit order',
     canActivate: [AuthGuard],
   },
-  // {
-  //   path: 'user/edit',
-  //   component: PasswordRequestComponent,
-  //   title: 'Enter password',
-  //   canActivate: [AuthGuard],
-  // },
+  {
+    path: 'user/validate',
+    component: PasswordRequestComponent,
+    title: 'Enter password',
+    canActivate: [AuthGuard],
+  },
   {
     path: 'user/edit',
     component: UserProfileComponent,
     title: 'Edit details',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, IdentifiedUserGuard],
   },
   { path: '**', redirectTo: '/products' },
 ];

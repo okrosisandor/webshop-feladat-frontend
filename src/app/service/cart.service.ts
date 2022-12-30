@@ -23,8 +23,6 @@ export class CartService {
   }
 
   changeAmount(cartId: any, cartItem: any, status: string){
-    // console.log(cartItem.product.availableInStock)
-    console.log(cartItem)
     if(status === "increase"){
       cartItem.quantity++;
       cartItem.product.reservedQuantity++;
@@ -34,6 +32,7 @@ export class CartService {
       cartItem.product.reservedQuantity--;
 
       if(cartItem.quantity === 1){
+        cartItem.quantity--;
         return this.removeFromCart(cartId)
       }else{
         cartItem.quantity--;

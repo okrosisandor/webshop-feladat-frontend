@@ -22,7 +22,7 @@
 
   <div *ngIf="isLoggedIn()" class="login">
     <div>
-      <p>Logged in as: <a routerLink="/user/edit">{{userService.getUserName()}}</a></p>
+      <p>Logged in as: <a routerLink="/user/validate">{{userService.getUserName()}}</a></p>
     </div>
     <button class="logout" (click)="logout()">Logout</button>
   </div>

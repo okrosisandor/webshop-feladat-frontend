@@ -9,6 +9,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class UserService {
   apiUrl = 'http://localhost:8086/users';
+  userValidated = false
 
   constructor(private http: HttpClient) {}
 
@@ -38,6 +39,22 @@ export class UserService {
 
   getUser(username: string) {
     return this.http.get(`${this.apiUrl}/user/${username}`);
+  }
+
+  validateUser(password: any){
+    return this.http.post(`${this.apiUrl}/validate`, password).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    );
+  }
+
+  setUserValidated(){
+    this.userValidated = true
+  }
+
+  isUserValidated(){
+    return this.userValidated;
   }
 
   updateUser(user: any){

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 
@@ -16,6 +16,9 @@ export class CartItemComponent implements OnInit {
   @Input() quantity: any;
   @Input() productPrice: any;
   @Input() cart: any;
+  // @Input() refresh: (id: number) => void;
+
+  @Output() elementDeleted: EventEmitter<any> = new EventEmitter();
 
   currentTotal: any;
 
@@ -31,10 +34,14 @@ export class CartItemComponent implements OnInit {
   }
 
   removeFromCart() {
-    this.cartService.removeFromCart(this.cartId).subscribe((res) => {
-      this.reloadCurrentRoute();
-    });
-
+    this.cartService.removeFromCart(this.cartId).subscribe(
+      (res) => {
+        this.elementDeleted.emit();
+      },
+      (err) => {
+        this.elementDeleted.emit();
+      }
+    );
   }
 
   reloadCurrentRoute() {
@@ -45,10 +52,30 @@ export class CartItemComponent implements OnInit {
   }
 
   changeAmount(status: string) {
-    this.cartService
-      .changeAmount(this.cartId, this.cart, status)
-      .subscribe((res) => {
+    this.cartService.changeAmount(this.cartId, this.cart, status).subscribe(
+      (res) => {
         this.reloadCurrentRoute();
-      });
+
+        if (this.cart.quantity === 0) {
+          this.elementDeleted.emit();
+        }
+      },
+      (err) => {
+        if (this.cart.quantity === 0) {
+          this.elementDeleted.emit();
+        }
+      }
+    );
+
+    console.log(this.cart);
+
+    // if(this.cart.quantity === 0){
+    //   this.elementDeleted.emit()
+    // }
+
+    // this.customerCart = this.customerCart.filter((c) => c.id != cartItem.id);
+
+    // let index = this.cart.findIndex((elt) => elt.id === this.cartId);
+    // console.log(index)
   }
 }

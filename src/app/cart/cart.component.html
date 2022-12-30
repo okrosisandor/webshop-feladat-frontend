@@ -23,6 +23,7 @@
       [price]="cart.product.price"
       [quantity]="cart.quantity"
       [cart]="cart"
+      (elementDeleted)="onElementDeleted(cart)"
       ><ng-content></ng-content
     ></app-cart-item>
   </div>
